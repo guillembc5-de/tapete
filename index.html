@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#1d5a3a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="TAPETE">
+  <meta name="description" content="TAPETE: el juego de cartas para cuando te dejas la baraja en casa. Funciona sin internet.">
+  <title>TAPETE</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main id="app">
+
+    <!-- PORTADA -->
+    <section id="home" class="screen active">
+      <div class="home-wrap">
+        <div class="logo-cards" aria-hidden="true">
+          <span class="lc lc1">♠</span><span class="lc lc2">♥</span><span class="lc lc3">♣</span>
+        </div>
+        <h1 class="logo">TAPETE</h1>
+        <p class="tagline">Cuando te dejas la baraja en casa</p>
+        <div class="menu">
+          <button id="btn-continue" class="btn ghost" hidden>Continuar partida</button>
+          <button id="btn-play" class="btn primary">Jugar</button>
+          <button id="btn-ranking" class="btn">Ranking</button>
+          <button id="btn-rules" class="btn ghost">Cómo se juega</button>
+        </div>
+        <p class="offline-note" id="offline-note"></p>
+      </div>
+    </section>
+
+    <!-- NUEVA PARTIDA -->
+    <section id="setup" class="screen">
+      <div class="panel">
+        <header class="panel-head">
+          <button class="icon-btn back" data-go="home" aria-label="Volver">‹</button>
+          <h2>Nueva partida</h2>
+        </header>
+        <div class="field">
+          <label>Jugadores</label>
+          <div class="seg" id="count-seg">
+            <button data-n="2" class="on">2</button>
+            <button data-n="3">3</button>
+            <button data-n="4">4</button>
+          </div>
+        </div>
+        <div id="name-fields" class="names"></div>
+        <div class="field" id="saved-wrap" hidden>
+          <label>Jugadores guardados <small>(toca para elegir)</small></label>
+          <div id="saved-chips" class="chips"></div>
+        </div>
+        <p id="setup-error" class="error" role="alert"></p>
+        <button id="btn-start" class="btn primary wide">Repartir cartas</button>
+      </div>
+    </section>
+
+    <!-- RANKING -->
+    <section id="ranking" class="screen">
+      <div class="panel">
+        <header class="panel-head">
+          <button class="icon-btn back" data-go="home" aria-label="Volver">‹</button>
+          <h2>Ranking</h2>
+        </header>
+        <div id="rank-list" class="rank-list"></div>
+        <p id="rank-empty" class="muted" hidden>Todavía no hay partidas terminadas.<br>Jugad una y aquí aparecerá quién gana más.</p>
+        <button id="btn-reset-rank" class="btn ghost small" hidden>Borrar ranking</button>
+      </div>
+    </section>
+
+    <!-- PARTIDA -->
+    <section id="game" class="screen">
+      <div id="board">
+        <div id="center">
+          <div id="pile"></div>
+          <div id="pile-count" class="pile-count"></div>
+          <button id="btn-pause" class="pause-btn" aria-label="Menú">⋯</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- VENTANAS -->
+    <div id="modal" class="modal" hidden>
+      <div class="modal-card" id="modal-card"></div>
+    </div>
+  </main>
+
+  <script type="module" src="js/ui.js"></script>
+</body>
+</html>
