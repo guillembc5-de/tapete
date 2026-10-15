@@ -1,6 +1,6 @@
 // TAPETE — service worker: guarda todo el juego en el móvil para jugar sin conexión.
 // Cuando cambies cualquier archivo del juego, sube el número de VERSION.
-const VERSION = 'tapete-v5';
+const VERSION = 'tapete-v6';
 const ASSETS = [
   './', './index.html', './manifest.webmanifest',
   './css/style.css',
